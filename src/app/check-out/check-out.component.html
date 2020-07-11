@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="">Contact No.</label>
-                <input #contactNo="ngModel" ngModel name="contactNo" type="number" class="form-control"  required >
+                <input #contactNo="ngModel" ngModel name="contactNo" type="number" class="form-control" minlength="10" required >
                 <div class="alert alert-danger" *ngIf="contactNo.touched && contactNo.invalid">
                 <div *ngIf="contactNo.errors.required ">Number is required.</div>
                 <div *ngIf="contactNo.errors.minlength ">Maximum Value is 10.</div>
