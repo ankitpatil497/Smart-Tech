@@ -1,0 +1,34 @@
+<p>
+    <a  routerLink="/admin-products-new" class="btn btn-primary">New Product</a>
+</p>
+<p>
+    <input 
+        #query
+        (keyup)="filter(query.value)"
+        type="text"
+        placeholder="Search....." 
+        class="form-control"
+    >
+</p>
+
+
+<table class="table table-striped table-bordered " 
+datatable [dtOptions]="dtOptions"
+  [dtTrigger]="dtTrigger">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of filterProduct">
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <button (click)="delete(p.key)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
